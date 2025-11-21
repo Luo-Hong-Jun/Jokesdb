@@ -21,7 +21,7 @@ jobs:
   steps:
   - uses: actions/checkout@4
   - name: Build the Docker image
-    run:
+    run: |
         docker compose build
-        docker login ghcr.io -u bognarpal -p ${{ secrets.GHCR_TOKEN }}
+        docker login ghcr.io -u Luo-Hong-Jun -p ${{ secrets.GHCR_TOKEN }}
         docker compose push
