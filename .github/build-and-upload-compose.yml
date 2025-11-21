@@ -16,12 +16,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  runs-on: ubuntu-latest
 
-  steps:
-  - uses: actions/checkout@4
-  - name: Build the Docker image
-    run: |
-        docker compose build
-        docker login ghcr.io -u Luo-Hong-Jun -p ${{ secrets.GHCR_TOKEN }}
-        docker compose push
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@4
+    - name: Build the Docker image
+      run: |
+          docker compose build
+          docker login ghcr.io -u Luo-Hong-Jun -p ${{ secrets.GHCR_TOKEN }}
+          docker compose push
